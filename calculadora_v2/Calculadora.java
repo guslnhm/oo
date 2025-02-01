@@ -38,16 +38,7 @@ public class Calculadora{
     }
     
     int inverterSinal(){
-        
-        /*System.out.println("operando 1 antes: " + operando1);
-        System.out.println("operando 2 antes: " + operando2);
-        operando1 = operando1*(-1);
-        operando2 = operando2*(-1);
-        System.out.println("operando 1 depois: " + operando1);
-        System.out.println("operando 2 depois: " + operando2);
-        return 0;*/
-        
-        operando1 = operando1*(-1);
-        return operando1;
+        resposta = operando1*(-1);
+        return resposta;
     }
 }

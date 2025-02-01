@@ -12,11 +12,13 @@ public class Main{
 	        System.out.println("Informe o valor do operando1:");
 	        calc.operando1 = sc.nextInt();
 	        sc.nextLine(); //consumir o "\n" residual, que não é consumido por nextInt
-	        System.out.println("Informe o valor do operando2:");
-	        calc.operando2 = sc.nextInt();
-	        sc.nextLine();
 	        System.out.println("Informe a operação desejada: (+, -, *, /, | -> inversão de sinal");
 	        operacao = sc.nextLine();
+	        if(!operacao.equals("!")){
+	            System.out.println("Informe o valor do operando2:");
+	            calc.operando2 = sc.nextInt();
+	            sc.nextLine();
+	        }
 	        switch(operacao){
 	            case "+":
 	                System.out.println("O resultado de " + calc.operando1 + " + " + calc.operando2 + " é " + calc.calcularSoma() + ".");
@@ -40,5 +42,9 @@ public class Main{
 	        System.out.println("Usuário deseja realizar um cálculo? (s/n)");
 		    answer = sc.nextLine();
 	    }
+	    //Destruindo Calculadora com estado: op1: <valor>, op2: <valor>, resultado: <valor>
+	    System.out.println("Destruindo Calculadora com estado: op1 = " + calc.operando1 + ", op2 = " + calc.operando2 + ", resultado = " + calc.resposta + ".");
+	    calc = null;
+	    System.gc();
 	}
 }
