@@ -17,9 +17,14 @@ public class Disciplina{
         this.professor_responsavel = professor_responsavel;
     }
     
-    public boolean pesquisarAluno(Aluno a){
-        for(Aluno aluno: alunos) if(aluno.matricula.equals(a.matricula)) return true;
-        return false;
+    public void pesquisarAlunos(){
+        /*for(Aluno aluno: alunos) if(aluno.matricula.equals(a.matricula)) return true;
+        return false;*/
+        System.out.println("LISTA DE ALUNOS MATRICULADOS EM " + this.nome);
+        for(Aluno a: alunos){
+            System.out.println("    " + a.nome);
+        }
+        System.out.println("----------");
     }
     
     public void matricularAluno(Aluno a){

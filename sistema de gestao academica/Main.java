@@ -7,6 +7,11 @@ public class Main{
 		Aluno a = new Aluno("Gustavo", "231036800", "gustavo@unb.br", c);
 		c.cadastrarAluno(a);
 		Disciplina d = new Disciplina("INTRODUCAO A GENETICA", "IB0125", "60h", "Pagliacci");
-		d.matricularAluno(a);
+		Disciplina d1 = new Disciplina("INTRODUCAO A CITOLOGIA", "IB0234", "60h", "Yves Saint-Laurent");
+		a.matricularEmDisciplina(d);
+		a.matricularEmDisciplina(d1);
+		a.emitirRelatorioAluno();
+		d.pesquisarAlunos();
+		c.pesquisarAlunos();
 	}
 }
