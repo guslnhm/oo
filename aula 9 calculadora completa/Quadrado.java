@@ -13,21 +13,24 @@ public class Quadrado extends FiguraGeometrica{
         lado = new Medida(valor, unidade);
     }
     
-    public void calcularArea(){
-        area = new Medida(this.lado.valor*this.lado.valor, this.lado.unidade + "²");
-        System.out.println("Area: " + area);
+    public String calcularArea(){
+        area = new Medida(lado.valor*lado.valor, lado.unidade + "²");
+        //System.out.println("Area: " + area);
+        return "Area: " + area + "\n";
     }
     
-    public void calcularPerimetro(){
-        perimetro = new Medida(this.lado.valor*4, this.lado.unidade);
-        System.out.println("Perimetro: " + perimetro);
+    public String calcularPerimetro(){
+        perimetro = new Medida(lado.valor*4, lado.unidade);
+        //System.out.println("Perimetro: " + perimetro);
+        return "Perimetro: " + perimetro + "\n";
     }
     
-    public void calcularQuadrado(){
-        System.out.println("Quadrado: ");
+    public String resultado(){
+        /*System.out.println("Quadrado: ");
         calcularArea();
         calcularPerimetro();
-        System.out.println();
+        System.out.println();*/
+        return "Quadrado:\n" + calcularArea() + calcularPerimetro();
     }
     
 }
