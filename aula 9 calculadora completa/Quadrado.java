@@ -1,8 +1,6 @@
-public class Quadrado{
+public class Quadrado extends FiguraGeometrica{
     
-    Medida lado,
-           area,
-           perimetro;
+    Medida lado;
            
     public Quadrado(Medida lado){
         this.lado = lado;
@@ -14,4 +12,22 @@ public class Quadrado{
     public Quadrado(float valor, String unidade){
         lado = new Medida(valor, unidade);
     }
+    
+    public void calcularArea(){
+        area = new Medida(this.lado.valor*this.lado.valor, this.lado.unidade + "²");
+        System.out.println("Area: " + area);
+    }
+    
+    public void calcularPerimetro(){
+        perimetro = new Medida(this.lado.valor*4, this.lado.unidade);
+        System.out.println("Perimetro: " + perimetro);
+    }
+    
+    public void calcularQuadrado(){
+        System.out.println("Quadrado: ");
+        calcularArea();
+        calcularPerimetro();
+        System.out.println();
+    }
+    
 }
