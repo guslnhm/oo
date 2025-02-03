@@ -9,7 +9,6 @@ public class Calculadora{
     private Scanner sc = new Scanner(System.in);
     private List<FiguraGeometrica> lista_figuras = new ArrayList<>();
     //private static int index = 0;
-    private int[] tipos_figuras_lista = new int[100];
     private String resposta;
     
     public Calculadora(){
