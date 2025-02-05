@@ -8,6 +8,8 @@ public class Cadastro{
     int opcao = 0;
     String string_input;
     List<Aluno> alunos = new ArrayList<>();
+    List<Professor> professores = new ArrayList<>();
+    List<Turma> turmas = new ArrayList<>();
     
     public Cadastro(){
         
@@ -31,8 +33,12 @@ public class Cadastro{
                     alunos.add(a);
                     break;
                 case 2:
+                    Professor p = new Professor();
+                    professores.add(p);
                     break;
                 case 3:
+                    Turma t = new Turma();
+                    turmas.add(t);
                     break;
                 case 4:
                     break;
