@@ -1,10 +1,13 @@
 import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Aluno extends Pessoa{
     private String matricula;
     private String curso;
     private String semestre_de_ingresso;
     private Scanner sc = new Scanner(System.in);
+    private static List<Aluno> alunos = new ArrayList<>();
     
     
     public Aluno(){
@@ -20,6 +23,7 @@ public class Aluno extends Pessoa{
         email = sc.nextLine();
         System.out.print("Informe o telefone do aluno\n>> ");
         telefone = sc.nextLine();
+        alunos.add(this);
     }
     
     public void setNome(String nome){
