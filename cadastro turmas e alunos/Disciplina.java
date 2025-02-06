@@ -14,11 +14,18 @@ public class Disciplina{
         this.nome = nome;
     }
     
-    public void adicionar_turma(Turma t){
+    public static void adicionar_turma(Turma t){
         turmas.add(t);
         for(Turma tt: turmas){
             System.out.println(tt);
         }
+    }
+    
+    public static Turma buscar_turma(String codigo){
+        for(Turma t: turmas){
+            if(t.getCodigo().equalsIgnoreCase(codigo)) return t; //usar método equals(IgnoreCase)!! não usar ==
+        }
+        return null;
     }
     
 }
