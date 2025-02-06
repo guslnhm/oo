@@ -9,6 +9,7 @@ public class Turma{
     private String horario;
     private Scanner sc = new Scanner(System.in);
     private String codigo;
+    private String opcao;
     
     public Turma(){
         System.out.print("Informe o nome da disciplina\n>> ");
@@ -20,10 +21,25 @@ public class Turma{
         System.out.print("Qual o codigo da turma?\n>> ");
         codigo = sc.nextLine();
         /*E O PROFESSOR?*/
+        Disciplina.adicionar_turma(this);//método estático, chamando pela classe
+    }
+    
+    public static void matricular_aluno(){
+        System.out.print("Qual turma você deseja matricular alunos?\n>> ");
+        opcao = sc.nextLine();
+        Turma t = Disciplina.buscar_turma(opcao);
+        if(t!=null){
+            
+        }
+        return;
+    }
+    
+    public String getCodigo(){
+        return codigo;
     }
     
     @Override
     public String toString(){
-        return sala + " " + horario;
+        return codigo + " " + sala + " " + horario;
     }
 }
