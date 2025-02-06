@@ -41,6 +41,7 @@ public class Cadastro{
                     turmas.add(t);
                     break;
                 case 4:
+                    Turma.matricular_aluno();
                     break;
                 case 5:
                     break;
