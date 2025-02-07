@@ -28,4 +28,8 @@ public class Disciplina{
         return null;
     }
     
+    public String getNome(){
+        return nome;
+    }
+    
 }
