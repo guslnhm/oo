@@ -7,9 +7,9 @@ public class Cadastro{
     Scanner sc = new Scanner(System.in);
     int opcao = 0;
     String string_input;
-    List<Aluno> alunos = new ArrayList<>();
+    private static List<Aluno> alunos = new ArrayList<>();
     List<Professor> professores = new ArrayList<>();
-    List<Turma> turmas = new ArrayList<>();
+    private static List<Turma> turmas = new ArrayList<>();
     
     public Cadastro(){
         
@@ -41,9 +41,22 @@ public class Cadastro{
                     turmas.add(t);
                     break;
                 case 4:
-                    Turma.matricular_aluno();
+                    System.out.print("Qual turma voce deseja matricular alunos?\n>> ");
+                    string_input = sc.nextLine();
+                    for(Turma tt:turmas){
+                        if(tt.getCodigo().equalsIgnoreCase(string_input)){
+                            tt.matricular_aluno();
+                        }
+                    }
                     break;
                 case 5:
+                    System.out.print("Qual turma voce deseja imprimir a lista?\n>> ");
+                    string_input = sc.nextLine();
+                    for(Turma ttt: turmas){
+                        if(ttt.getCodigo().equalsIgnoreCase(string_input)){
+                            ttt.imprimir_frequencia();
+                        }
+                    }
                     break;
                 case 6:
                     return;
@@ -51,5 +64,19 @@ public class Cadastro{
                     break;
             }
         }
+    }
+    
+    public static Turma getTurma(String codigo){
+        for(Turma t: turmas){
+            if(t.getCodigo().equalsIgnoreCase(codigo)) return t;
+        }
+        return null;
+    }
+    
+    public static Aluno getAluno(String matricula){
+        for(Aluno a: alunos){
+            if(a.getMatricula().equalsIgnoreCase(matricula)) return a;
+        }
+        return null;
     }
 }
