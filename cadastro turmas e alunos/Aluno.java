@@ -55,4 +55,19 @@ public class Aluno extends Pessoa{
         return "Nome: " + nome;
     }
     
+    public static Aluno buscar_aluno(String matricula){
+        for(Aluno a: alunos){
+            if(a.matricula.equalsIgnoreCase(matricula)) return a;
+        }
+        return null;
+    }
+    
+    public String getNome(){
+        return nome;
+    }
+    
+    public String getMatricula(){
+        return matricula;
+    }
+    
 }
