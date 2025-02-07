@@ -7,9 +7,10 @@ public class Turma{
     private Aluno[] alunos = new Aluno[40];
     private String sala;
     private String horario;
-    private Scanner sc = new Scanner(System.in);
+    private static Scanner sc = new Scanner(System.in);
     private String codigo;
-    private String opcao;
+    private static String opcao;
+    private int vagas_disponiveis = 40;
     
     public Turma(){
         System.out.print("Informe o nome da disciplina\n>> ");
@@ -24,14 +25,21 @@ public class Turma{
         Disciplina.adicionar_turma(this);//método estático, chamando pela classe
     }
     
-    public static void matricular_aluno(){
-        System.out.print("Qual turma você deseja matricular alunos?\n>> ");
+    public void matricular_aluno(){
+        System.out.print("Informe o código do aluno a ser matriculado\n>> ");
         opcao = sc.nextLine();
-        Turma t = Disciplina.buscar_turma(opcao);
-        if(t!=null){
-            
+        Aluno a = Cadastro.getAluno(opcao);
+        if(a!=null){
+            System.out.print("Deseja matricular o aluno " + a.getNome() + " na turma " + this.getCodigo() + " - " + this.getNome() + "? (s/n)\n>> ");
+            opcao = sc.nextLine();
+            if(opcao.equalsIgnoreCase("s")){
+                this.alunos[40 - vagas_disponiveis] = a;
+                vagas_disponiveis--;
+                for(Aluno aa: alunos){
+                    if(aa!=null) System.out.println(aa);
+                }
+            }
         }
-        return;
     }
     
     public String getCodigo(){
@@ -42,4 +50,22 @@ public class Turma{
     public String toString(){
         return codigo + " " + sala + " " + horario;
     }
+    
+    public String getNome(){
+        return disciplina.getNome();
+    }
+    
+    public void imprimir_frequencia(){
+        int contador = 1;
+        System.out.println(this.getCodigo() + " - " + this.getNome());
+        System.out.println("Sala: " + this.sala);
+        System.out.println(this.horario + "\n");
+        System.out.println("Numero Matricula Nome");
+        for(Aluno aa: alunos){
+            if(aa!=null){
+                System.out.println(contador++ + "      " + aa.getMatricula() + "    " + aa.getNome());
+            }
+        }
+    }
+    
 }
